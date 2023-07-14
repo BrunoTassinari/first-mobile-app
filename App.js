@@ -1,20 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, StatusBar, SafeAreaView } from "react-native";
+import {
+  useFonts,
+  Montserrat_400Regular,
+  Montserrat_700Bold,
+} from "@expo-google-fonts/montserrat";
+
+import { Wallet } from "./src/pages";
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    "Montserrat-Regular": Montserrat_400Regular,
+    "Montserrat-Bold": Montserrat_700Bold,
+  });
+
+  if (!fontsLoaded) {
+    return <View />;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Esse é meu aplicativo</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView>
+      <StatusBar />
+      <Wallet />
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
