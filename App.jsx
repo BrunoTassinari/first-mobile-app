@@ -5,7 +5,7 @@ import {
   Montserrat_700Bold,
 } from "@expo-google-fonts/montserrat";
 
-import { Wallet } from "./src/pages";
+import { Product } from "./src/pages";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -20,7 +20,7 @@ export default function App() {
   return (
     <SafeAreaView>
       <StatusBar />
-      <Wallet />
+      <Product />
     </SafeAreaView>
   );
 }
